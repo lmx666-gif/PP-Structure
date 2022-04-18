@@ -18,11 +18,11 @@ for file_name in jpg_folder_all:
         #print(pic_name)
         image = cv2.imread(img_path)
         # 将输入图像转为灰度图
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        #gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         # 对灰度图使用ostu算法
-        ret1, th1 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU)
+        #ret1, th1 = cv2.threshold(gray, 0, 255, cv2.THRESH_OTSU)
         # 双边滤波
-        img_bilater = cv2.bilateralFilter(th1, 9, 75, 75)
+        img_bilater = cv2.bilateralFilter(image, 9, 75, 75)
         if not os.path.exists('..\\Data\\exp_bilater\\' + str(ind)):
             os.makedirs('..\\Data\\exp_bilater\\' + str(ind))
         pic_path='..\\Data\\exp_bilater\\' + str(ind)
